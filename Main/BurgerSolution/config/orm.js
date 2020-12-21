@@ -76,6 +76,4 @@ var orm = {
   }
 };
 
-orm.all("burgers")
-
 module.exports = orm;

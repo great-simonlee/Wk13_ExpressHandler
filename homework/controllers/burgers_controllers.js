@@ -4,14 +4,15 @@ const router = express.Router();
 const burger = require("../models/burger.js");
 
 router.get("/", function(req, res) {
-    res.render("index", { burger_data: burger.all() })
+    let burgerData = burger.all()
+    res.render("index", { burger_data: burgerData })
 });
 
-router.post("/api", function(req, res) {
+router.post("/burgers/create", function(req, res) {
     
 });
 
-router.put("/api/:id", function(req, res) {
+router.put("/burgers/:id", function(req, res) {
 
 });
 
