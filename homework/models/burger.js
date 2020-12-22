@@ -11,8 +11,10 @@ const burger = {
             callback(result);
         });
     },
-    update: function(data, id) {
-        orm.updateOne("burgers", data, id);
+    update: function(id, callback) {
+        orm.updateOne("burgers", id, (result) => {
+            callback(result);
+        });
     }
 };
 

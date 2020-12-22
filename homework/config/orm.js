@@ -17,11 +17,11 @@ const orm = {
         })
     },
 
-    updateOne: function(tableName, changeVal, idRow) {
-        let queryString = "UPDATE ?? SET burger_name = ? WHERE id = ?";
-        conn.query(queryString, [tableName, changeVal, idRow], function(err, result) {
+    updateOne: function(tableName, idRow, callback) {
+        let queryString = "UPDATE ?? SET devoured = ? WHERE id = ?";
+        conn.query(queryString, [tableName, true, idRow], function(err, result) {
             if (err) throw err;
-            orm.selectAll("burgers");
+            callback(result);
         })
     }
 };

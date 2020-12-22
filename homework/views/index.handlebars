@@ -8,9 +8,17 @@
             <div class="row">
                 <ul>
                     {{#each burger_data}}
-                    <li>
+                    {{#unless this.devoured}}
+                    <li id="hamburgerList">
                         <p>{{this.id}}. {{this.burger_name}}</p>
+                        <div class="col-md-3 text-center">
+                            <form class="devour-form button-size">
+                                <input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
+                                <button type="submit" class="btn btn-default">Done!</button>
+                            </form>
+                        </div>
                     </li>
+                    {{/unless}}
                     {{/each}}
                 </ul>
             </div>
