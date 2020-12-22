@@ -1,19 +1,19 @@
 const conn = require("./connection.js");
 
 const orm = {
-    selectAll: function(tableName) {
+    selectAll: function(tableName, callback) {
         let queryString = "SELECT * FROM ??";
         conn.query(queryString, [tableName], function(err, result) {
             if (err) throw err;
-            console.log(result);
+            callback(result);
         })
     },
 
-    insertOne: function(tableName, burgerName) {
+    insertOne: function(tableName, burgerName, callback) {
         let queryString = "INSERT INTO ?? (burger_name, devoured) VALUE (?, ?);"
-        conn.query(queryString, [tableName, burgerName, 0], function(err, result) {
+        conn.query(queryString, [tableName, burgerName, false], function(err, result) {
             if (err) throw err;
-            orm.selectAll("burgers");
+            callback(result);
         })
     },
 
